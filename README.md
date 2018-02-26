@@ -15,6 +15,11 @@ tar –xvzf spark-2.2.1-bin-hadoop2.7.tgz
 		sbin/start-master.sh -h 127.0.0.1 -p 7077
 		sbin/start-slave.sh spark://127.0.0.1:7077
 
+bin/spark-submit --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.1.1 --master spark://127.0.0.1:7077 --class com.airline.Carriers --deploy-mode client /Users/cruise/Documents/developer/nadia/kafkaproject/airline/target/airline-0.0.1-SNAPSHOT.jar
+
+
+bin/spark-submit --packages com.databricks:spark-avro_2.11:4.0.0 --master spark://127.0.0.1:7077 --class com.airline.Modelling --deploy-mode client /Users/cruise/Documents/developer/nadia/kafkaproject/airline/target/airline-0.0.1-SNAPSHOT.jar		
+
 ################  kafka installation  ########################
 
 1.2 Install  kafka 
