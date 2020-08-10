@@ -37,21 +37,30 @@ bin/kafka-server-start.sh config/server.properties
 Create Topic in Kafka
 
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Airports
+
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Carriers
+
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Planedate
+
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic OTP
 
 Read the source data in topics
 
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Airports < /Users/cruise/Documents/developer/emirates/airports.csv
+
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Planedate < /Users/cruise/Documents/developer/emirates/plane-data.csv
+
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Carriers < /Users/cruise/Documents/developer/emirates/carriers.csv
+
 
 Get data into consumer 
 
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --bootstrap-server localhost:9092 --topic Airports --from-beginning
+
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --bootstrap-server localhost:9092 --topic Planedate --from-beginning
+
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --bootstrap-server localhost:9092 --topic Carriers --from-beginning
+
 
 
 ################  flume installation  ########################
